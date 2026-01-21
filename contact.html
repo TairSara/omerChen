@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>צור קשר | עומר חן - עוגיות מרוקאיות וסדנאות</title>
+    <meta name="description" content="צרו קשר עם עומר חן להזמנות, שאלות או הרשמה לסדנאות עוגיות מרוקאיות.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-wrapper">
+            <nav class="nav">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="photos/LogoOmer.jpeg" alt="עומר חן - עוגיות מרוקאיות וסדנאות">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">דף הבית</a></li>
+                    <li><a href="recipes.html">המתכונים שלי</a></li>
+                    <li><a href="workshops.html">הסדנאות שלי</a></li>
+                    <li><a href="gallery.html">גלריה</a></li>
+                    <li><a href="about.html">אודות</a></li>
+                    <li><a href="contact.html" class="active">צור קשר</a></li>
+                </ul>
+                <button class="mobile-menu-btn" aria-label="תפריט">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>צור קשר</h1>
+            <p>רוצים להזמין? יש שאלות? אשמח לשמוע מכם</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-page">
+        <div class="container">
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">שם מלא *</label>
+                        <input type="text" id="name" name="name" required placeholder="השם שלך">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">טלפון *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="050-0000000">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">אימייל</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">נושא</label>
+                        <select id="subject" name="subject">
+                            <option value="הזמנת עוגיות">הזמנת עוגיות</option>
+                            <option value="הרשמה לסדנה">הרשמה לסדנה</option>
+                            <option value="שאלה כללית">שאלה כללית</option>
+                            <option value="אחר">אחר</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">הודעה *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="מה תרצו לדעת?"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="submitBtn">שלח הודעה</button>
+                    <div id="formMessage" class="form-message"></div>
+                </form>
+
+                <div class="contact-info">
+                    <h3>דרכים ליצור קשר</h3>
+
+                    <div class="info-item">
+                        <div class="info-text">
+                            <h4>טלפון</h4>
+                            <p>0502714489</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-text">
+                            <h4>אימייל</h4>
+                            <p>info@omerhen.co.il</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-text">
+                            <h4>מיקום</h4>
+                            <p>באר שבע</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-text">
+                            <h4>אינסטגרם</h4>
+                            <p>@omerr.hen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>עומר חן | עוגיות מרוקאיות וסדנאות לעוגיות מרוקאיות. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
