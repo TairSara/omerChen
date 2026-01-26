@@ -3,7 +3,9 @@
     "allow": [
       "Bash(dir:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit - Omer Chen Moroccan Pastry Website\n\nFeatures:\n- Dynamic Node.js/Express server with contact form functionality\n- Email sending via Nodemailer\n- Responsive design with RTL Hebrew support\n- Pages: Home, Recipes, Workshops, Gallery, About, Contact\n- Lightbox gallery with images and videos\n- Workshop and recipe modals\n- Mobile-friendly navigation\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)"
     ]
   }
 }
