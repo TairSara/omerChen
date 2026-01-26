@@ -306,42 +306,92 @@ const lightboxVideoSource = lightboxVideo ? lightboxVideo.querySelector('source'
 const lightboxClose = document.querySelector('.lightbox-close');
 const lightboxPrev = document.querySelector('.lightbox-prev');
 const lightboxNext = document.querySelector('.lightbox-next');
+const lightboxTitle = document.querySelector('.lightbox-title');
+const lightboxCounter = document.querySelector('.lightbox-counter');
 
-let galleryItems = [];
-let currentIndex = 0;
+// Current gallery state
+let currentImages = [];
+let currentImageIndex = 0;
+let currentTitle = '';
+let isVideoMode = false;
 
-// Collect all gallery items
-function initGalleryItems() {
-    const images = document.querySelectorAll('.masonry-item');
-    const videos = document.querySelectorAll('.video-item');
-
-    galleryItems = [];
-
-    images.forEach(item => {
-        galleryItems.push({
-            type: 'image',
-            src: item.getAttribute('data-src'),
-            element: item
-        });
-    });
-
-    videos.forEach(item => {
-        galleryItems.push({
-            type: 'video',
-            src: item.getAttribute('data-src'),
-            element: item
-        });
-    });
-}
-
-// Open lightbox
-function openLightbox(index) {
+// Open product gallery (multiple images)
+function openProductGallery(images, title) {
     if (!lightbox) return;
 
-    currentIndex = index;
-    updateLightboxContent();
+    currentImages = images;
+    currentImageIndex = 0;
+    currentTitle = title;
+    isVideoMode = false;
+
+    updateProductLightbox();
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
+}
+
+// Open single video
+function openVideoLightbox(src) {
+    if (!lightbox) return;
+
+    isVideoMode = true;
+    currentImages = [];
+
+    if (lightboxVideoSource) {
+        lightboxVideoSource.src = src;
+        lightboxVideo.load();
+    }
+    lightboxVideo.classList.add('active');
+    lightboxImage.classList.remove('active');
+
+    // Hide title and counter for videos
+    if (lightboxTitle) lightboxTitle.style.display = 'none';
+    if (lightboxCounter) lightboxCounter.style.display = 'none';
+
+    // Hide navigation for single video
+    if (lightboxPrev) lightboxPrev.style.display = 'none';
+    if (lightboxNext) lightboxNext.style.display = 'none';
+
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Update product lightbox content
+function updateProductLightbox() {
+    if (currentImages.length === 0) return;
+
+    const src = currentImages[currentImageIndex];
+    lightboxImage.src = src;
+    lightboxImage.classList.add('active');
+    lightboxVideo.classList.remove('active');
+
+    if (lightboxVideo) {
+        lightboxVideo.pause();
+    }
+
+    // Update title
+    if (lightboxTitle) {
+        lightboxTitle.textContent = currentTitle;
+        lightboxTitle.style.display = 'block';
+    }
+
+    // Update counter
+    if (lightboxCounter) {
+        if (currentImages.length > 1) {
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+            lightboxCounter.style.display = 'block';
+        } else {
+            lightboxCounter.style.display = 'none';
+        }
+    }
+
+    // Show/hide navigation based on image count
+    if (currentImages.length > 1) {
+        if (lightboxPrev) lightboxPrev.style.display = 'flex';
+        if (lightboxNext) lightboxNext.style.display = 'flex';
+    } else {
+        if (lightboxPrev) lightboxPrev.style.display = 'none';
+        if (lightboxNext) lightboxNext.style.display = 'none';
+    }
 }
 
 // Close lightbox
@@ -356,59 +406,53 @@ function closeLightbox() {
         lightboxVideo.pause();
         lightboxVideo.currentTime = 0;
     }
+
+    // Reset state
+    currentImages = [];
+    currentImageIndex = 0;
+    isVideoMode = false;
 }
 
-// Update lightbox content
-function updateLightboxContent() {
-    const item = galleryItems[currentIndex];
-
-    if (!item) return;
-
-    if (item.type === 'image') {
-        lightboxImage.src = item.src;
-        lightboxImage.classList.add('active');
-        lightboxVideo.classList.remove('active');
-        if (lightboxVideo) {
-            lightboxVideo.pause();
-        }
-    } else {
-        if (lightboxVideoSource) {
-            lightboxVideoSource.src = item.src;
-            lightboxVideo.load();
-        }
-        lightboxVideo.classList.add('active');
-        lightboxImage.classList.remove('active');
-    }
+// Navigate to previous image
+function prevImage() {
+    if (isVideoMode || currentImages.length <= 1) return;
+    currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
+    updateProductLightbox();
 }
 
-// Navigate to previous item
-function prevItem() {
-    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    updateLightboxContent();
-}
-
-// Navigate to next item
-function nextItem() {
-    currentIndex = (currentIndex + 1) % galleryItems.length;
-    updateLightboxContent();
+// Navigate to next image
+function nextImage() {
+    if (isVideoMode || currentImages.length <= 1) return;
+    currentImageIndex = (currentImageIndex + 1) % currentImages.length;
+    updateProductLightbox();
 }
 
 // Initialize gallery if on gallery page
 if (lightbox) {
-    initGalleryItems();
-
-    // Click on masonry items
-    document.querySelectorAll('.masonry-item').forEach((item, index) => {
+    // Click on product cards
+    document.querySelectorAll('.product-card').forEach(item => {
         item.addEventListener('click', () => {
-            openLightbox(index);
+            const imagesData = item.getAttribute('data-images');
+            const title = item.getAttribute('data-title') || '';
+
+            if (imagesData) {
+                try {
+                    const images = JSON.parse(imagesData);
+                    openProductGallery(images, title);
+                } catch (e) {
+                    console.error('Error parsing images:', e);
+                }
+            }
         });
     });
 
     // Click on video items
-    const imageCount = document.querySelectorAll('.masonry-item').length;
-    document.querySelectorAll('.video-item').forEach((item, index) => {
+    document.querySelectorAll('.video-item').forEach(item => {
         item.addEventListener('click', () => {
-            openLightbox(imageCount + index);
+            const src = item.getAttribute('data-src');
+            if (src) {
+                openVideoLightbox(src);
+            }
         });
     });
 
@@ -419,11 +463,11 @@ if (lightbox) {
 
     // Navigation buttons
     if (lightboxPrev) {
-        lightboxPrev.addEventListener('click', prevItem);
+        lightboxPrev.addEventListener('click', prevImage);
     }
 
     if (lightboxNext) {
-        lightboxNext.addEventListener('click', nextItem);
+        lightboxNext.addEventListener('click', nextImage);
     }
 
     // Click outside to close
@@ -440,9 +484,9 @@ if (lightbox) {
         if (e.key === 'Escape') {
             closeLightbox();
         } else if (e.key === 'ArrowRight') {
-            prevItem(); // RTL
+            prevImage(); // RTL
         } else if (e.key === 'ArrowLeft') {
-            nextItem(); // RTL
+            nextImage(); // RTL
         }
     });
 
@@ -457,4 +501,54 @@ if (lightbox) {
             video.currentTime = 0;
         });
     });
+}
+
+// ============================================
+// WORKSHOP PHOTOS AUTO-SCROLL
+// ============================================
+const workshopPhotosScroll = document.querySelector('.workshop-photos-scroll');
+const workshopPhotosTrack = document.querySelector('.workshop-photos-track');
+
+if (workshopPhotosScroll && workshopPhotosTrack) {
+    let scrollSpeed = 1;
+    let isHovered = false;
+    let scrollDirection = 1; // 1 = left (for RTL), -1 = right
+
+    function autoScroll() {
+        if (!isHovered) {
+            workshopPhotosScroll.scrollLeft += scrollSpeed * scrollDirection;
+
+            // Reverse direction at edges
+            const maxScroll = workshopPhotosScroll.scrollWidth - workshopPhotosScroll.clientWidth;
+            if (workshopPhotosScroll.scrollLeft >= maxScroll) {
+                scrollDirection = -1;
+            } else if (workshopPhotosScroll.scrollLeft <= 0) {
+                scrollDirection = 1;
+            }
+        }
+        requestAnimationFrame(autoScroll);
+    }
+
+    // Pause on hover
+    workshopPhotosScroll.addEventListener('mouseenter', () => {
+        isHovered = true;
+    });
+
+    workshopPhotosScroll.addEventListener('mouseleave', () => {
+        isHovered = false;
+    });
+
+    // Pause on touch
+    workshopPhotosScroll.addEventListener('touchstart', () => {
+        isHovered = true;
+    });
+
+    workshopPhotosScroll.addEventListener('touchend', () => {
+        setTimeout(() => {
+            isHovered = false;
+        }, 2000); // Resume after 2 seconds
+    });
+
+    // Start auto-scroll
+    autoScroll();
 }
