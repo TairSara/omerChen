@@ -576,3 +576,15 @@ document.querySelectorAll('.hero-image-hover').forEach(container => {
     });
 });
 
+// ============================================
+// VIDEO PREVIEW - Load first frame
+// ============================================
+document.querySelectorAll('.video-item video').forEach(video => {
+    // When video data loads, seek to first frame
+    video.addEventListener('loadeddata', () => {
+        video.currentTime = 0.1;
+    });
+    // Try to load the video
+    video.load();
+});
+
