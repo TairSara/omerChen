@@ -833,7 +833,7 @@ a, button, .btn, .btn-hero, [onclick], .gallery-item, .recipe-card-new, .worksho
 .video-item {
     position: relative;
     overflow: hidden;
-    background: #000;
+    background: linear-gradient(135deg, #5D3A3A 0%, #8B4550 50%, #C4A67D 100%);
     aspect-ratio: 9/16;
     cursor: pointer;
     border-radius: 20px;

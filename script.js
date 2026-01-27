@@ -557,6 +557,12 @@ if (workshopPhotosScroll && workshopPhotosTrack) {
 // HERO IMAGE TOGGLE ON MOBILE
 // ============================================
 document.querySelectorAll('.hero-image-hover').forEach(container => {
+    // Use touchend for iOS support
+    container.addEventListener('touchend', (e) => {
+        e.preventDefault();
+        container.classList.toggle('active');
+    });
+    // Also keep click for desktop
     container.addEventListener('click', () => {
         container.classList.toggle('active');
     });
@@ -565,26 +571,45 @@ document.querySelectorAll('.hero-image-hover').forEach(container => {
 // ============================================
 // GALLERY VIDEO PREVIEW ON TAP (MOBILE)
 // ============================================
+// Initialize videos on first user interaction (for iOS)
+let videosInitialized = false;
+function initializeVideos() {
+    if (videosInitialized) return;
+    videosInitialized = true;
+    document.querySelectorAll('.video-item video').forEach(video => {
+        video.load();
+        video.currentTime = 0.001;
+    });
+}
+
+// Try to initialize on first touch anywhere
+document.addEventListener('touchstart', initializeVideos, { once: true });
+
 document.querySelectorAll('.video-item').forEach(item => {
     const video = item.querySelector('video');
     if (video) {
-        // Force load first frame for preview on mobile
+        // Try to load on desktop
         video.load();
-        video.currentTime = 0.001;
 
-        // On mobile, tap to show preview
-        item.addEventListener('click', (e) => {
-            // If video is not playing, start playing preview
+        // Handle tap/click to play video
+        const playVideo = (e) => {
+            e.preventDefault();
+            // Stop all other videos first
+            document.querySelectorAll('.video-item video').forEach(v => {
+                if (v !== video) {
+                    v.pause();
+                    v.currentTime = 0;
+                }
+            });
+
             if (video.paused) {
-                // Stop all other videos first
-                document.querySelectorAll('.video-item video').forEach(v => {
-                    if (v !== video) {
-                        v.pause();
-                        v.currentTime = 0;
-                    }
-                });
                 video.play();
+            } else {
+                video.pause();
             }
-        });
+        };
+
+        item.addEventListener('touchend', playVideo);
+        item.addEventListener('click', playVideo);
     }
 });
