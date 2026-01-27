@@ -568,6 +568,10 @@ document.querySelectorAll('.hero-image-hover').forEach(container => {
 document.querySelectorAll('.video-item').forEach(item => {
     const video = item.querySelector('video');
     if (video) {
+        // Force load first frame for preview on mobile
+        video.load();
+        video.currentTime = 0.001;
+
         // On mobile, tap to show preview
         item.addEventListener('click', (e) => {
             // If video is not playing, start playing preview
