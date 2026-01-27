@@ -552,3 +552,35 @@ if (workshopPhotosScroll && workshopPhotosTrack) {
     // Start auto-scroll
     autoScroll();
 }
+
+// ============================================
+// HERO IMAGE TOGGLE ON MOBILE
+// ============================================
+document.querySelectorAll('.hero-image-hover').forEach(container => {
+    container.addEventListener('click', () => {
+        container.classList.toggle('active');
+    });
+});
+
+// ============================================
+// GALLERY VIDEO PREVIEW ON TAP (MOBILE)
+// ============================================
+document.querySelectorAll('.video-item').forEach(item => {
+    const video = item.querySelector('video');
+    if (video) {
+        // On mobile, tap to show preview
+        item.addEventListener('click', (e) => {
+            // If video is not playing, start playing preview
+            if (video.paused) {
+                // Stop all other videos first
+                document.querySelectorAll('.video-item video').forEach(v => {
+                    if (v !== video) {
+                        v.pause();
+                        v.currentTime = 0;
+                    }
+                });
+                video.play();
+            }
+        });
+    }
+});

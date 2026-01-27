@@ -378,6 +378,15 @@ a, button, .btn, .btn-hero, [onclick], .gallery-item, .recipe-card-new, .worksho
     opacity: 1;
 }
 
+/* Mobile tap toggle */
+.hero-image-hover.active .image-default {
+    opacity: 0;
+}
+
+.hero-image-hover.active .image-hover {
+    opacity: 1;
+}
+
 @keyframes heroFloat {
     0%, 100% {
         transform: translateY(0);
