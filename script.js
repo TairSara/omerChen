@@ -557,14 +557,22 @@ if (workshopPhotosScroll && workshopPhotosTrack) {
 // HERO IMAGE TOGGLE ON MOBILE
 // ============================================
 document.querySelectorAll('.hero-image-hover').forEach(container => {
-    // Use touchend for iOS support
+    let touchHandled = false;
+
+    // Use touchend for iOS/mobile support
     container.addEventListener('touchend', (e) => {
         e.preventDefault();
+        touchHandled = true;
         container.classList.toggle('active');
+        // Reset after a short delay
+        setTimeout(() => { touchHandled = false; }, 300);
     });
-    // Also keep click for desktop
+
+    // Click for desktop (only if not handled by touch)
     container.addEventListener('click', () => {
-        container.classList.toggle('active');
+        if (!touchHandled) {
+            container.classList.toggle('active');
+        }
     });
 });
 
