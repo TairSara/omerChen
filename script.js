@@ -588,3 +588,57 @@ document.querySelectorAll('.video-item video').forEach(video => {
     video.load();
 });
 
+// ============================================
+// COOKIE CONSENT BANNER
+// ============================================
+const cookieBanner = document.getElementById('cookieBanner');
+const cookieAcceptBtn = document.getElementById('cookieAccept');
+const cookieDeclineBtn = document.getElementById('cookieDecline');
+
+// Check if user has already made a choice
+function getCookieConsent() {
+    return localStorage.getItem('cookieConsent');
+}
+
+// Set cookie consent
+function setCookieConsent(value) {
+    localStorage.setItem('cookieConsent', value);
+    localStorage.setItem('cookieConsentDate', new Date().toISOString());
+}
+
+// Show cookie banner if no consent recorded
+function initCookieBanner() {
+    if (cookieBanner && !getCookieConsent()) {
+        // Small delay for better UX
+        setTimeout(() => {
+            cookieBanner.classList.add('active');
+        }, 1000);
+    }
+}
+
+// Hide cookie banner
+function hideCookieBanner() {
+    if (cookieBanner) {
+        cookieBanner.classList.remove('active');
+    }
+}
+
+// Accept cookies
+if (cookieAcceptBtn) {
+    cookieAcceptBtn.addEventListener('click', () => {
+        setCookieConsent('accepted');
+        hideCookieBanner();
+    });
+}
+
+// Decline cookies
+if (cookieDeclineBtn) {
+    cookieDeclineBtn.addEventListener('click', () => {
+        setCookieConsent('declined');
+        hideCookieBanner();
+    });
+}
+
+// Initialize cookie banner on page load
+initCookieBanner();
+

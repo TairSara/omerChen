@@ -3,50 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>גלריה | עומר חן - עוגיות מרוקאיות וסדנאות</title>
-    <meta name="description" content="גלריית העבודות של עומר חן - עוגיות מרוקאיות בעבודת יד.">
+
+    <!-- SEO Meta Tags -->
+    <title>גלריית עוגיות מרוקאיות | תמונות מגשים ועוגיות לאירועים - עומר חן באר שבע</title>
+    <meta name="description" content="גלריית תמונות של עוגיות מרוקאיות בעבודת יד: שבקייה, מספאן, תכשיטי שקדים, מגשי עוגיות לאירועים, חתונות, בר מצוות וחינות. צפו בעבודות של עומר חן מבאר שבע.">
+    <meta name="keywords" content="תמונות עוגיות מרוקאיות, מגש עוגיות מרוקאיות, עוגיות לאירועים, עוגיות מרוקאיות לחתונה, עוגיות לבר מצווה, שבקייה, מספאן, תכשיטי שקדים, תכשיטי פיסטוק, עוגיות מרוקאיות באר שבע">
+    <meta name="author" content="עומר חן">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://omerhen.co.il/gallery.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omerhen.co.il/gallery.html">
+    <meta property="og:title" content="גלריית עוגיות מרוקאיות | מגשים ועוגיות לאירועים - עומר חן">
+    <meta property="og:description" content="צפו בגלריית תמונות של עוגיות מרוקאיות בעבודת יד: שבקייה, מספאן, תכשיטי שקדים ומגשי עוגיות מרשימים לאירועים.">
+    <meta property="og:image" content="https://omerhen.co.il/photos/gallery/מגש עוגיות מרוקאיות קוטר 38 כ65 עוגיות.jpeg">
+    <meta property="og:locale" content="he_IL">
+
+    <!-- Schema.org ImageGallery -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        "name": "גלריית עוגיות מרוקאיות - עומר חן",
+        "description": "גלריית תמונות של עוגיות מרוקאיות בעבודת יד: שבקייה, מספאן, תכשיטי שקדים ומגשי עוגיות לאירועים",
+        "url": "https://omerhen.co.il/gallery.html",
+        "author": {
+            "@type": "Person",
+            "name": "עומר חן"
+        }
+    }
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+    <a href="#main-nav" class="skip-link">דלג לתפריט הניווט</a>
+
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="nav-wrapper">
-            <nav class="nav">
+            <nav class="nav" id="main-nav" role="navigation" aria-label="תפריט ראשי">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="photos/LogoOmer.jpeg" alt="עומר חן - עוגיות מרוקאיות וסדנאות">
+                    <a href="/" aria-label="עומר חן - עוגיות מרוקאיות וסדנאות - חזרה לדף הבית">
+                        <img src="photos/LogoOmer.jpeg" alt="לוגו עומר חן - עוגיות מרוקאיות וסדנאות">
                     </a>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">דף הבית</a></li>
-                    <li><a href="recipes.html">המתכונים שלי</a></li>
-                    <li><a href="workshops.html">הסדנאות שלי</a></li>
-                    <li><a href="gallery.html" class="active">גלריה</a></li>
-                    <li><a href="about.html">אודות</a></li>
-                    <li><a href="contact.html">צור קשר</a></li>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/" role="menuitem">דף הבית</a></li>
+                    <li role="none"><a href="recipes.html" role="menuitem">המתכונים שלי</a></li>
+                    <li role="none"><a href="workshops.html" role="menuitem">הסדנאות שלי</a></li>
+                    <li role="none"><a href="gallery.html" class="active" role="menuitem" aria-current="page">גלריה</a></li>
+                    <li role="none"><a href="about.html" role="menuitem">אודות</a></li>
+                    <li role="none"><a href="contact.html" role="menuitem">צור קשר</a></li>
                 </ul>
-                <button class="mobile-menu-btn" aria-label="תפריט">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="mobile-menu-btn" aria-label="פתיחת תפריט ניווט" aria-expanded="false" aria-controls="nav-links">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </button>
             </nav>
         </div>
     </header>
 
+    <main id="main-content" role="main">
     <!-- Page Header -->
-    <section class="page-header gallery-header">
+    <section class="page-header gallery-header" aria-labelledby="gallery-title">
         <div class="container">
-            <h1>גלריה</h1>
+            <h1 id="gallery-title">גלריה</h1>
             <p>עוגיות מרוקאיות בעבודת יד - מהעבודות שלי</p>
         </div>
     </section>
 
     <!-- Gallery Grid - All Items -->
-    <section class="gallery-section">
+    <section class="gallery-section" aria-label="גלריית עוגיות מרוקאיות">
         <div class="container">
             <div class="products-grid">
                 <!-- תכשיטי שקדים - 2 תמונות -->
@@ -317,13 +352,28 @@
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
-            <p>עומר חן | עוגיות מרוקאיות וסדנאות לעוגיות מרוקאיות. כל הזכויות שמורות.</p>
+            <p><span aria-label="זכויות יוצרים">©</span> עומר חן | עוגיות מרוקאיות וסדנאות לעוגיות מרוקאיות. כל הזכויות שמורות. | <a href="accessibility.html" aria-label="הצהרת נגישות">הצהרת נגישות</a> | <a href="privacy.html" aria-label="מדיניות פרטיות">מדיניות פרטיות</a></p>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <h4 id="cookieTitle">אתר זה משתמש בעוגיות</h4>
+                <p id="cookieDesc">אנו משתמשים בעוגיות כדי לשפר את חוויית הגלישה שלכם ולספק שירותי נגישות. לפרטים נוספים, עיינו ב<a href="privacy.html">מדיניות הפרטיות</a> שלנו.</p>
+            </div>
+            <div class="cookie-banner-buttons">
+                <button class="cookie-btn cookie-btn-accept" id="cookieAccept" aria-label="אישור שימוש בעוגיות">אני מאשר/ת</button>
+                <button class="cookie-btn cookie-btn-decline" id="cookieDecline" aria-label="דחיית שימוש בעוגיות">לא, תודה</button>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.enable.co.il/licenses/enable-L53483sqbtzpmgk2-0126-78902/init.js"></script>
     <script src="script.js"></script>

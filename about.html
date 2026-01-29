@@ -3,144 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אודות | עומר חן - עוגיות מרוקאיות וסדנאות</title>
-    <meta name="description" content="הסיפור של עומר חן - עוגיות מרוקאיות בעבודת יד, מסורת משפחתית שעוברת מדור לדור.">
+
+    <!-- SEO Meta Tags -->
+    <title>עומר חן - הסיפור שלי | עוגיות מרוקאיות בעבודת יד בבאר שבע</title>
+    <meta name="description" content="הכירו את עומר חן - אופה עוגיות מרוקאיות מסורתיות בבאר שבע. מסורת משפחתית שעוברת מדור לדור, מתכונים אותנטיים של סבא וסבתא, עוגיות בעבודת יד עם אהבה.">
+    <meta name="keywords" content="עומר חן, עוגיות מרוקאיות באר שבע, אופה עוגיות מרוקאיות, מסורת מרוקאית, עוגיות בעבודת יד, שבקייה, מספאן, תכשיטי שקדים">
+    <meta name="author" content="עומר חן">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://omerhen.co.il/about.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://omerhen.co.il/about.html">
+    <meta property="og:title" content="עומר חן - הסיפור שלי | עוגיות מרוקאיות בעבודת יד">
+    <meta property="og:description" content="הכירו את עומר חן - אופה עוגיות מרוקאיות מסורתיות בבאר שבע. מסורת משפחתית שעוברת מדור לדור.">
+    <meta property="og:image" content="https://omerhen.co.il/photos/omer.png">
+    <meta property="og:locale" content="he_IL">
+
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "עומר חן",
+        "jobTitle": "אופה עוגיות מרוקאיות",
+        "description": "אופה עוגיות מרוקאיות מסורתיות בעבודת יד בבאר שבע",
+        "image": "https://omerhen.co.il/photos/omer.png",
+        "url": "https://omerhen.co.il/about.html",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "באר שבע",
+            "addressCountry": "IL"
+        },
+        "sameAs": [
+            "https://www.instagram.com/omerr.hen"
+        ]
+    }
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+    <a href="#main-nav" class="skip-link">דלג לתפריט הניווט</a>
+
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="nav-wrapper">
-            <nav class="nav">
+            <nav class="nav" id="main-nav" role="navigation" aria-label="תפריט ראשי">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="photos/LogoOmer.jpeg" alt="עומר חן - עוגיות מרוקאיות וסדנאות">
+                    <a href="/" aria-label="עומר חן - עוגיות מרוקאיות וסדנאות - חזרה לדף הבית">
+                        <img src="photos/LogoOmer.jpeg" alt="לוגו עומר חן - עוגיות מרוקאיות וסדנאות">
                     </a>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">דף הבית</a></li>
-                    <li><a href="recipes.html">המתכונים שלי</a></li>
-                    <li><a href="workshops.html">הסדנאות שלי</a></li>
-                    <li><a href="gallery.html">גלריה</a></li>
-                    <li><a href="about.html" class="active">אודות</a></li>
-                    <li><a href="contact.html">צור קשר</a></li>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/" role="menuitem">דף הבית</a></li>
+                    <li role="none"><a href="recipes.html" role="menuitem">המתכונים שלי</a></li>
+                    <li role="none"><a href="workshops.html" role="menuitem">הסדנאות שלי</a></li>
+                    <li role="none"><a href="gallery.html" role="menuitem">גלריה</a></li>
+                    <li role="none"><a href="about.html" class="active" role="menuitem" aria-current="page">אודות</a></li>
+                    <li role="none"><a href="contact.html" role="menuitem">צור קשר</a></li>
                 </ul>
-                <button class="mobile-menu-btn" aria-label="תפריט">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="mobile-menu-btn" aria-label="פתיחת תפריט ניווט" aria-expanded="false" aria-controls="nav-links">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </button>
             </nav>
         </div>
     </header>
 
+    <main id="main-content" role="main">
     <!-- About Hero - Centered Simple -->
-    <section class="about-hero-minimal">
+    <section class="about-hero-minimal" aria-labelledby="about-title">
         <div class="container">
             <div class="about-hero-centered">
-                <img src="photos/omer.png" alt="עומר חן" class="about-avatar">
-                <span class="about-greeting">היי, קוראים לי</span>
-                <h1>עומר חן</h1>
+                <img src="photos/omer.png" alt="תמונה של עומר חן - אופה עוגיות מרוקאיות מסורתיות" class="about-avatar">
+                <span class="about-greeting" aria-hidden="true">היי, קוראים לי</span>
+                <h1 id="about-title">עומר חן</h1>
                 <p class="about-tagline">ואני מכין עוגות, מאפים ועוגיות מרוקאיות כמו שגדלתי עליהן</p>
             </div>
         </div>
     </section>
 
     <!-- Story Section - Split Layout -->
-    <section class="about-story-section">
+    <section class="about-story-section" aria-labelledby="story-title">
         <div class="container">
             <div class="story-grid">
                 <div class="story-text">
-                    <h2>הסיפור שלי</h2>
+                    <h2 id="story-title">הסיפור שלי</h2>
                     <p>גדלתי בבית מרוקאי חם, שבו הריחות מהמטבח היו חלק בלתי נפרד מהחיים.</p>
                     <p>סבא וסבתא שלי העבירו לי את האהבה לאוכל אותנטי, לעבודת יד, ולמסורת. הם היו מכינים עוגיות בכמויות, לא רק בשביל למכור - אלא גם בשביל לשמח.</p>
                     <p>הריח של השבקייה, המקרוד והתכשיטים היה ריח של בית. ריח שאני רוצה לשתף עם כולם.</p>
                 </div>
-                <div class="story-images">
-                    <img src="photos/omerPhotos/1.jpeg" alt="עומר חן בעבודה">
-                    <img src="photos/omerPhotos/3.jpeg" alt="עוגיות מרוקאיות">
+                <div class="story-images" role="group" aria-label="תמונות מהסיפור שלי">
+                    <img src="photos/omerPhotos/1.jpeg" alt="עומר חן מכין עוגיות מרוקאיות בעבודת יד">
+                    <img src="photos/omerPhotos/3.jpeg" alt="מגוון עוגיות מרוקאיות מסורתיות מוכנות להגשה">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Journey Section -->
-    <section class="about-journey-section">
+    <section class="about-journey-section" aria-labelledby="journey-title">
         <div class="container">
             <div class="journey-grid">
                 <div class="journey-image">
-                    <img src="photos/omerPhotos/4.jpeg" alt="סדנה">
+                    <img src="photos/omerPhotos/4.jpeg" alt="סדנת עוגיות מרוקאיות עם משתתפים">
                 </div>
                 <div class="journey-text">
-                    <h2>המסע שלי</h2>
+                    <h2 id="journey-title">המסע שלי</h2>
                     <p>החיים לקחו אותי להרבה מקומות, אבל בסוף הבנתי שדווקא שם - במסורת, בפשטות, בידיים שעובדות לאט - מחכה השליחות שלי.</p>
                     <p>היום אני מכין עוגיות מרוקאיות, עוגות ומאפים בעבודת יד, מחומרי גלם איכותיים, בלי קיצורי דרך, עם הקפדה על טעם, טריות וכבוד למתכון המקורי.</p>
-                    <div class="journey-mission">
+                    <blockquote class="journey-mission">
                         כל עוגייה שיוצאת ממני נועדה לעשות דבר אחד: להחזיר אנשים לרגע טוב. לטעם של ילדות. לבית.
-                    </div>
+                    </blockquote>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Values - Horizontal Strip -->
-    <section class="about-values-strip">
+    <section class="about-values-strip" aria-labelledby="values-title">
+        <h2 id="values-title" class="visually-hidden">הערכים שלי</h2>
         <div class="container">
-            <div class="values-row">
-                <div class="value-box">
-                    <span class="value-num">01</span>
+            <div class="values-row" role="list">
+                <article class="value-box" role="listitem">
+                    <span class="value-num" aria-hidden="true">01</span>
                     <h3>אותנטיות</h3>
                     <p>מתכונים מקוריים שעוברים במשפחה מדור לדור</p>
-                </div>
-                <div class="value-box">
-                    <span class="value-num">02</span>
+                </article>
+                <article class="value-box" role="listitem">
+                    <span class="value-num" aria-hidden="true">02</span>
                     <h3>איכות</h3>
                     <p>חומרי גלם משובחים, הכנה טרייה, הקפדה על כל פרט</p>
-                </div>
-                <div class="value-box">
-                    <span class="value-num">03</span>
+                </article>
+                <article class="value-box" role="listitem">
+                    <span class="value-num" aria-hidden="true">03</span>
                     <h3>אהבה</h3>
                     <p>כל עוגייה נעשית בלב, עם הרצון לשמח ולחבר</p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Mini Gallery -->
-    <section class="about-mini-gallery">
-        <div class="mini-gallery-grid">
-            <img src="photos/omerWork/1.jpeg" alt="עוגיות">
-            <img src="photos/omerWork/2.jpeg" alt="עוגיות">
-            <img src="photos/omerWork/3.jpeg" alt="עוגיות">
-            <img src="photos/omerWork/4.jpeg" alt="עוגיות">
-            <img src="photos/omerWork/5.jpeg" alt="עוגיות">
-            <img src="photos/omerWork/6.jpeg" alt="עוגיות">
+    <section class="about-mini-gallery" aria-label="גלריית תמונות של עוגיות מרוקאיות">
+        <div class="mini-gallery-grid" role="list">
+            <img src="photos/omerWork/1.jpeg" alt="עוגיות מרוקאיות מסורתיות" role="listitem">
+            <img src="photos/omerWork/2.jpeg" alt="מגש עוגיות מרוקאיות מעוטר" role="listitem">
+            <img src="photos/omerWork/3.jpeg" alt="תכשיטי שקדים מרוקאיים" role="listitem">
+            <img src="photos/omerWork/4.jpeg" alt="שבקייה מסורתית" role="listitem">
+            <img src="photos/omerWork/5.jpeg" alt="מספאן עוגיות שקדים" role="listitem">
+            <img src="photos/omerWork/6.jpeg" alt="עוגיות מרוקאיות לאירועים" role="listitem">
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="about-cta-section">
+    <section class="about-cta-section" aria-labelledby="cta-title">
         <div class="container">
             <div class="about-cta-box">
-                <h2>רוצים לטעום?</h2>
+                <h2 id="cta-title">רוצים לטעום?</h2>
                 <p>צרו קשר להזמנות או הצטרפו לסדנה</p>
                 <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary">צור קשר</a>
-                    <a href="workshops.html" class="btn btn-outline">לסדנאות</a>
+                    <a href="contact.html" class="btn btn-primary" aria-label="צרו קשר להזמנת עוגיות מרוקאיות">צור קשר</a>
+                    <a href="workshops.html" class="btn btn-outline" aria-label="לפרטים על הסדנאות שלי">לסדנאות</a>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
-            <p>עומר חן | עוגיות מרוקאיות וסדנאות לעוגיות מרוקאיות. כל הזכויות שמורות.</p>
+            <p><span aria-label="זכויות יוצרים">©</span> עומר חן | עוגיות מרוקאיות וסדנאות לעוגיות מרוקאיות. כל הזכויות שמורות. | <a href="accessibility.html" aria-label="הצהרת נגישות">הצהרת נגישות</a> | <a href="privacy.html" aria-label="מדיניות פרטיות">מדיניות פרטיות</a></p>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <h4 id="cookieTitle">אתר זה משתמש בעוגיות</h4>
+                <p id="cookieDesc">אנו משתמשים בעוגיות כדי לשפר את חוויית הגלישה שלכם ולספק שירותי נגישות. לפרטים נוספים, עיינו ב<a href="privacy.html">מדיניות הפרטיות</a> שלנו.</p>
+            </div>
+            <div class="cookie-banner-buttons">
+                <button class="cookie-btn cookie-btn-accept" id="cookieAccept" aria-label="אישור שימוש בעוגיות">אני מאשר/ת</button>
+                <button class="cookie-btn cookie-btn-decline" id="cookieDecline" aria-label="דחיית שימוש בעוגיות">לא, תודה</button>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.enable.co.il/licenses/enable-L53483sqbtzpmgk2-0126-78902/init.js"></script>
     <script src="script.js"></script>

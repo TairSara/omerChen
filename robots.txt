@@ -1,0 +1,9 @@
+# robots.txt for omerhen.co.il
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://omerhen.co.il/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1

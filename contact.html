@@ -3,64 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>צור קשר | עומר חן - עוגיות מרוקאיות וסדנאות</title>
-    <meta name="description" content="צרו קשר עם עומר חן להזמנות, שאלות או הרשמה לסדנאות עוגיות מרוקאיות.">
+
+    <!-- SEO Meta Tags -->
+    <title>צור קשר | הזמנת עוגיות מרוקאיות והרשמה לסדנאות - עומר חן באר שבע</title>
+    <meta name="description" content="צרו קשר עם עומר חן להזמנת עוגיות מרוקאיות לאירועים או הרשמה לסדנאות בבאר שבע. טלפון: 0502714489. משלוחים לבאר שבע והסביבה.">
+    <meta name="keywords" content="הזמנת עוגיות מרוקאיות, הזמנת עוגיות לאירוע, הרשמה לסדנת עוגיות מרוקאיות, עומר חן טלפון, עוגיות מרוקאיות באר שבע יצירת קשר">
+    <meta name="author" content="עומר חן">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://omerhen.co.il/contact.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://omerhen.co.il/contact.html">
+    <meta property="og:title" content="צור קשר | הזמנת עוגיות מרוקאיות - עומר חן באר שבע">
+    <meta property="og:description" content="צרו קשר להזמנת עוגיות מרוקאיות לאירועים או הרשמה לסדנאות. טלפון: 0502714489">
+    <meta property="og:image" content="https://omerhen.co.il/photos/LogoOmer.jpeg">
+    <meta property="og:locale" content="he_IL">
+
+    <!-- Schema.org ContactPage -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "צור קשר - עומר חן עוגיות מרוקאיות",
+        "description": "צרו קשר להזמנת עוגיות מרוקאיות או הרשמה לסדנאות",
+        "url": "https://omerhen.co.il/contact.html",
+        "mainEntity": {
+            "@type": "LocalBusiness",
+            "name": "עומר חן - עוגיות מרוקאיות",
+            "telephone": "0502714489",
+            "email": "info@omerhen.co.il",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "באר שבע",
+                "addressCountry": "IL"
+            }
+        }
+    }
+    </script>
+
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Skip Links for Accessibility -->
+    <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+    <a href="#main-nav" class="skip-link">דלג לתפריט הניווט</a>
+
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <div class="nav-wrapper">
-            <nav class="nav">
+            <nav class="nav" id="main-nav" role="navigation" aria-label="תפריט ראשי">
                 <div class="logo">
-                    <a href="index.html">
-                        <img src="photos/LogoOmer.jpeg" alt="עומר חן - עוגיות מרוקאיות וסדנאות">
+                    <a href="/" aria-label="עומר חן - עוגיות מרוקאיות וסדנאות - חזרה לדף הבית">
+                        <img src="photos/LogoOmer.jpeg" alt="לוגו עומר חן - עוגיות מרוקאיות וסדנאות">
                     </a>
                 </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">דף הבית</a></li>
-                    <li><a href="recipes.html">המתכונים שלי</a></li>
-                    <li><a href="workshops.html">הסדנאות שלי</a></li>
-                    <li><a href="gallery.html">גלריה</a></li>
-                    <li><a href="about.html">אודות</a></li>
-                    <li><a href="contact.html" class="active">צור קשר</a></li>
+                <ul class="nav-links" role="menubar">
+                    <li role="none"><a href="/" role="menuitem">דף הבית</a></li>
+                    <li role="none"><a href="recipes.html" role="menuitem">המתכונים שלי</a></li>
+                    <li role="none"><a href="workshops.html" role="menuitem">הסדנאות שלי</a></li>
+                    <li role="none"><a href="gallery.html" role="menuitem">גלריה</a></li>
+                    <li role="none"><a href="about.html" role="menuitem">אודות</a></li>
+                    <li role="none"><a href="contact.html" class="active" role="menuitem" aria-current="page">צור קשר</a></li>
                 </ul>
-                <button class="mobile-menu-btn" aria-label="תפריט">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button class="mobile-menu-btn" aria-label="פתיחת תפריט ניווט" aria-expanded="false" aria-controls="nav-links">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </button>
             </nav>
         </div>
     </header>
 
+    <main id="main-content" role="main">
     <!-- Page Header -->
-    <section class="page-header">
+    <section class="page-header" aria-labelledby="page-title">
         <div class="container">
-            <h1>צור קשר</h1>
+            <h1 id="page-title">צור קשר</h1>
             <p>רוצים להזמין? יש שאלות? אשמח לשמוע מכם</p>
         </div>
     </section>
 
     <!-- Contact Content -->
-    <section class="contact-page">
+    <section class="contact-page" aria-labelledby="contact-form-title">
         <div class="container">
             <div class="contact-content">
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" aria-labelledby="contact-form-title" novalidate>
+                    <h2 id="contact-form-title" class="visually-hidden">טופס יצירת קשר</h2>
+
                     <div class="form-group">
-                        <label for="name">שם מלא *</label>
-                        <input type="text" id="name" name="name" required placeholder="השם שלך">
+                        <label for="name">שם מלא <span aria-hidden="true">*</span><span class="visually-hidden">(שדה חובה)</span></label>
+                        <input type="text" id="name" name="name" required placeholder="השם שלך" autocomplete="name" aria-required="true">
                     </div>
                     <div class="form-group">
-                        <label for="phone">טלפון *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="050-0000000">
+                        <label for="phone">טלפון <span aria-hidden="true">*</span><span class="visually-hidden">(שדה חובה)</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="050-0000000" autocomplete="tel" aria-required="true" pattern="[0-9\-\s]+">
                     </div>
                     <div class="form-group">
                         <label for="email">אימייל</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.com">
+                        <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
                     </div>
                     <div class="form-group">
                         <label for="subject">נושא</label>
@@ -72,27 +116,27 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">הודעה *</label>
-                        <textarea id="message" name="message" rows="5" required placeholder="מה תרצו לדעת?"></textarea>
+                        <label for="message">הודעה <span aria-hidden="true">*</span><span class="visually-hidden">(שדה חובה)</span></label>
+                        <textarea id="message" name="message" rows="5" required placeholder="מה תרצו לדעת?" aria-required="true"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" id="submitBtn">שלח הודעה</button>
-                    <div id="formMessage" class="form-message"></div>
+                    <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
                 </form>
 
-                <div class="contact-info">
-                    <h3>דרכים ליצור קשר</h3>
+                <aside class="contact-info" aria-labelledby="contact-info-title">
+                    <h3 id="contact-info-title">דרכים ליצור קשר</h3>
 
                     <div class="info-item">
                         <div class="info-text">
                             <h4>טלפון</h4>
-                            <p>0502714489</p>
+                            <p><a href="tel:0502714489" aria-label="התקשרו אלינו: 050-271-4489">0502714489</a></p>
                         </div>
                     </div>
 
                     <div class="info-item">
                         <div class="info-text">
                             <h4>אימייל</h4>
-                            <p>info@omerhen.co.il</p>
+                            <p><a href="mailto:info@omerhen.co.il" aria-label="שלחו אימייל ל: info@omerhen.co.il">info@omerhen.co.il</a></p>
                         </div>
                     </div>
 
@@ -106,20 +150,35 @@
                     <div class="info-item">
                         <div class="info-text">
                             <h4>אינסטגרם</h4>
-                            <p>@omerr.hen</p>
+                            <p><a href="https://www.instagram.com/omerr.hen" target="_blank" rel="noopener noreferrer" aria-label="עקבו אחרינו באינסטגרם: @omerr.hen (נפתח בחלון חדש)">@omerr.hen</a></p>
                         </div>
                     </div>
-                </div>
+                </aside>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
-            <p>עומר חן | עוגיות מרוקאיות וסדנאות לעוגיות מרוקאיות. כל הזכויות שמורות.</p>
+            <p><span aria-label="זכויות יוצרים">©</span> עומר חן | עוגיות מרוקאיות וסדנאות לעוגיות מרוקאיות. כל הזכויות שמורות. | <a href="accessibility.html" aria-label="הצהרת נגישות">הצהרת נגישות</a> | <a href="privacy.html" aria-label="מדיניות פרטיות">מדיניות פרטיות</a></p>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieDesc">
+        <div class="cookie-banner-content">
+            <div class="cookie-banner-text">
+                <h4 id="cookieTitle">אתר זה משתמש בעוגיות</h4>
+                <p id="cookieDesc">אנו משתמשים בעוגיות כדי לשפר את חוויית הגלישה שלכם ולספק שירותי נגישות. לפרטים נוספים, עיינו ב<a href="privacy.html">מדיניות הפרטיות</a> שלנו.</p>
+            </div>
+            <div class="cookie-banner-buttons">
+                <button class="cookie-btn cookie-btn-accept" id="cookieAccept" aria-label="אישור שימוש בעוגיות">אני מאשר/ת</button>
+                <button class="cookie-btn cookie-btn-decline" id="cookieDecline" aria-label="דחיית שימוש בעוגיות">לא, תודה</button>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.enable.co.il/licenses/enable-L53483sqbtzpmgk2-0126-78902/init.js"></script>
     <script src="script.js"></script>

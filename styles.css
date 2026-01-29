@@ -15,10 +15,89 @@
     --text-light: #666666;
     --bg-color: #FFFFFF;
     --border-color: #E5E5E5;
+    /* Accessibility - Focus colors */
+    --focus-color: #005fcc;
+    --focus-outline: 3px solid var(--focus-color);
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ============================================
+   ACCESSIBILITY STYLES
+   ============================================ */
+
+/* Skip Links - Hidden until focused */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    right: 0;
+    background: var(--primary-color);
+    color: #FFFFFF;
+    padding: 12px 24px;
+    z-index: 10000;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0 0 8px 8px;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
+
+/* Visually Hidden - For screen readers only */
+.visually-hidden,
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Focus Styles - Enhanced visibility */
+*:focus {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+    outline: none;
+}
+
+*:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
+
+/* Links and buttons focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+    border-radius: 4px;
 }
 
 body {
@@ -4027,4 +4106,210 @@ a, button, .btn, .btn-hero, [onclick], .gallery-item, .recipe-card-new, .worksho
     .gallery-strip-images img {
         height: 80px;
     }
+}
+
+/* ============================================
+   ACCESSIBILITY PAGE STYLES
+   ============================================ */
+.accessibility-content {
+    padding: 4rem 0;
+    background: var(--cream);
+}
+
+.accessibility-article {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+}
+
+.accessibility-article h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--gold);
+}
+
+.accessibility-article h2:first-of-type {
+    margin-top: 0;
+}
+
+.accessibility-article p {
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.accessibility-article ul {
+    margin: 1rem 0 1.5rem 1.5rem;
+    color: var(--text-color);
+}
+
+.accessibility-article li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+}
+
+.accessibility-article a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.accessibility-article a:hover {
+    color: var(--gold);
+}
+
+@media (max-width: 768px) {
+    .accessibility-article {
+        padding: 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .accessibility-article h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* ============================================
+   COOKIE CONSENT BANNER
+   ============================================ */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #4a2828 100%);
+    color: white;
+    padding: 1.25rem 1.5rem;
+    z-index: 9999;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    display: none;
+}
+
+.cookie-banner.active {
+    display: block;
+    transform: translateY(0);
+}
+
+.cookie-banner-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.cookie-banner-text {
+    flex: 1;
+    min-width: 280px;
+}
+
+.cookie-banner-text h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.cookie-banner-text p {
+    font-size: 0.9rem;
+    opacity: 0.95;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.cookie-banner-text a {
+    color: var(--gold);
+    text-decoration: underline;
+    transition: opacity 0.3s;
+}
+
+.cookie-banner-text a:hover {
+    opacity: 0.8;
+}
+
+.cookie-banner-buttons {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+}
+
+.cookie-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-family: inherit;
+}
+
+.cookie-btn-accept {
+    background: var(--gold);
+    color: var(--primary-color);
+}
+
+.cookie-btn-accept:hover {
+    background: #d4b88d;
+    transform: translateY(-2px);
+}
+
+.cookie-btn-decline {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.cookie-btn-decline:hover {
+    border-color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .cookie-banner {
+        padding: 1rem;
+    }
+
+    .cookie-banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .cookie-banner-text {
+        min-width: auto;
+    }
+
+    .cookie-banner-text h4 {
+        font-size: 1rem;
+    }
+
+    .cookie-banner-text p {
+        font-size: 0.85rem;
+    }
+
+    .cookie-banner-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .cookie-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Privacy Page - Uses same styles as Accessibility */
+.accessibility-article h3 {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin: 1.5rem 0 0.75rem;
 }
