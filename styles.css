@@ -3551,13 +3551,13 @@ a, button, .btn, .btn-hero, [onclick], .gallery-item, .recipe-card-new, .worksho
 }
 
 /* ============================================
-   FOOTER - Elegant Style
+   FOOTER - Black Style
    ============================================ */
 .footer {
-    background: linear-gradient(135deg, var(--primary-color) 0%, #3d2525 100%);
+    background: #1a1a1a;
     color: white;
     text-align: center;
-    padding: 2.5rem 0;
+    padding: 2rem 0;
     position: relative;
 }
 
@@ -3567,13 +3567,57 @@ a, button, .btn, .btn-hero, [onclick], .gallery-item, .recipe-card-new, .worksho
     top: 0;
     left: 0;
     right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--primary-color), var(--gold));
+    height: 2px;
+    background: var(--gold);
 }
 
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.footer-credit {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-credit a {
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.footer-credit a:hover {
+    opacity: 0.8;
+}
+
+.footer-links {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+.footer-links span {
+    margin: 0 0.5rem;
+    opacity: 0.5;
+}
+
+/* Old footer p style for backwards compatibility */
 .footer p {
-    opacity: 0.95;
-    font-size: 0.95rem;
+    opacity: 0.9;
+    font-size: 0.9rem;
     letter-spacing: 0.3px;
 }
 
