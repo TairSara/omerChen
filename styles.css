@@ -3487,6 +3487,48 @@ a, button, .btn, .btn-hero, [onclick], .gallery-item, .recipe-card-new, .worksho
     box-shadow: 0 0 0 3px rgba(93, 58, 58, 0.1);
 }
 
+/* Privacy Consent Checkbox */
+.form-group-checkbox {
+    margin-top: 0.5rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    margin-top: 2px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.checkbox-text {
+    color: var(--text-color);
+}
+
+.checkbox-text a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.checkbox-text a:hover {
+    color: var(--secondary-color);
+}
+
+.checkbox-label input[type="checkbox"]:focus {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
+
 .contact-info {
     padding: 1rem 0;
 }

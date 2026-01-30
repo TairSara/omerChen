@@ -119,6 +119,12 @@
                         <label for="message">הודעה <span aria-hidden="true">*</span><span class="visually-hidden">(שדה חובה)</span></label>
                         <textarea id="message" name="message" rows="5" required placeholder="מה תרצו לדעת?" aria-required="true"></textarea>
                     </div>
+                    <div class="form-group form-group-checkbox">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="privacyConsent" name="privacyConsent" required aria-required="true">
+                            <span class="checkbox-text">קראתי ואני מסכים/ה ל<a href="privacy.html" target="_blank" rel="noopener noreferrer">מדיניות הפרטיות</a> <span aria-hidden="true">*</span><span class="visually-hidden">(שדה חובה)</span></span>
+                        </label>
+                    </div>
                     <button type="submit" class="btn btn-primary" id="submitBtn">שלח הודעה</button>
                     <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
                 </form>
