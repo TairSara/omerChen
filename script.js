@@ -62,6 +62,40 @@ if (contactForm) {
         const formMessage = document.getElementById('formMessage');
         const originalBtnText = submitBtn.textContent;
 
+        // Get form fields
+        const nameField = document.getElementById('name');
+        const phoneField = document.getElementById('phone');
+        const messageField = document.getElementById('message');
+        const privacyCheckbox = document.getElementById('privacyConsent');
+
+        // Validate required fields
+        let isValid = true;
+        let errorMessage = '';
+
+        if (!nameField.value.trim()) {
+            isValid = false;
+            errorMessage = 'נא למלא שם מלא';
+            nameField.focus();
+        } else if (!phoneField.value.trim()) {
+            isValid = false;
+            errorMessage = 'נא למלא מספר טלפון';
+            phoneField.focus();
+        } else if (!messageField.value.trim()) {
+            isValid = false;
+            errorMessage = 'נא לכתוב הודעה';
+            messageField.focus();
+        } else if (privacyCheckbox && !privacyCheckbox.checked) {
+            isValid = false;
+            errorMessage = 'נא לאשר את מדיניות הפרטיות';
+            privacyCheckbox.focus();
+        }
+
+        if (!isValid) {
+            formMessage.textContent = errorMessage;
+            formMessage.className = 'form-message error';
+            return;
+        }
+
         // Disable button and show loading
         submitBtn.disabled = true;
         submitBtn.textContent = 'שולח...';
