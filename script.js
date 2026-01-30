@@ -48,7 +48,10 @@ if (header) {
     });
 }
 
-// Contact Form Handler
+// Contact Form Handler - Google Sheets Integration
+// Replace YOUR_GOOGLE_SCRIPT_URL with your deployed Google Apps Script URL
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXDXiPifg0iZk0eWMCZe7UEpOfUsAx_nXh6TCjaCEaTsQ8Psi571SCwauwyQCyVSN2/exec';
+
 const contactForm = document.getElementById('contactForm');
 
 if (contactForm) {
@@ -66,20 +69,16 @@ if (contactForm) {
         formMessage.className = 'form-message';
 
         const formData = new FormData(this);
-        const data = Object.fromEntries(formData);
 
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
+                body: formData
             });
 
             const result = await response.json();
 
-            if (result.success) {
+            if (result.result === 'success') {
                 formMessage.textContent = 'ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.';
                 formMessage.classList.add('success');
                 this.reset();
