@@ -1,9 +1,9 @@
-# robots.txt for omerhen.onrender.com
+# robots.txt for omerhen.com
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://omerhen.onrender.com/sitemap.xml
+Sitemap: https://omerhen.com/sitemap.xml
 
 # Crawl-delay (optional, for politeness)
 Crawl-delay: 1

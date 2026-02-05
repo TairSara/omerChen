@@ -12,8 +12,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files
-app.use(express.static(path.join(__dirname)));
+// Serve static files (but not .html files directly for clean URLs)
+app.use(express.static(path.join(__dirname), {
+    extensions: ['html'], // This allows serving .html files without extension
+    index: 'index.html'
+}));
 
 // Email transporter configuration
 const transporter = nodemailer.createTransport({
@@ -80,18 +83,39 @@ app.post('/api/contact', async (req, res) => {
     }
 });
 
-// Serve HTML pages
+// Redirect .html URLs to clean URLs (301 permanent redirect for SEO)
+app.get('*.html', (req, res) => {
+    const cleanUrl = req.path.replace('.html', '');
+    res.redirect(301, cleanUrl);
+});
+
+// Serve HTML pages with clean URLs
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.get('/:page', (req, res) => {
-    const page = req.params.page;
-    if (page.endsWith('.html')) {
-        res.sendFile(path.join(__dirname, page));
-    } else {
+// Handle all page routes without .html extension
+const pages = ['about', 'gallery', 'recipes', 'workshops', 'contact', 'privacy', 'accessibility'];
+pages.forEach(page => {
+    app.get(`/${page}`, (req, res) => {
         res.sendFile(path.join(__dirname, `${page}.html`));
-    }
+    });
+});
+
+// Fallback for any other routes - try to serve as HTML file
+app.get('/:page', (req, res, next) => {
+    const page = req.params.page;
+    const filePath = path.join(__dirname, `${page}.html`);
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            next(); // Pass to 404 handler if file not found
+        }
+    });
+});
+
+// 404 handler
+app.use((req, res) => {
+    res.status(404).sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Start server
