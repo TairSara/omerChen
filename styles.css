@@ -2023,6 +2023,17 @@ a, button, .btn, .btn-hero, [onclick], .gallery-item, .recipe-card-new, .worksho
     color: white;
 }
 
+.date-tag.available.evening {
+    background: #2c1a4e;
+    color: #f5c842;
+    border: 2px solid #f5c842;
+}
+
+.date-tag.available.evening:hover {
+    background: #f5c842;
+    color: #2c1a4e;
+}
+
 .workshop-cta-btn {
     width: 100%;
     text-align: center;
