@@ -2024,14 +2024,14 @@ a, button, .btn, .btn-hero, [onclick], .gallery-item, .recipe-card-new, .worksho
 }
 
 .date-tag.available.evening {
-    background: #2c1a4e;
-    color: #f5c842;
-    border: 2px solid #f5c842;
+    background: #fdf3d0;
+    color: #7a5c00;
+    border: 2px solid #d4a017;
 }
 
 .date-tag.available.evening:hover {
-    background: #f5c842;
-    color: #2c1a4e;
+    background: #d4a017;
+    color: white;
 }
 
 .workshop-cta-btn {
