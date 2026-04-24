@@ -402,6 +402,38 @@ a, button, .btn, .btn-hero, [onclick], .gallery-item, .recipe-card-new, .worksho
     color: white;
 }
 
+.btn-hero-course {
+    background: linear-gradient(135deg, #C4A67D, #8B4550);
+    color: white;
+    border: none;
+    box-shadow: 0 10px 30px rgba(196, 166, 125, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hero-course::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 40%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.25);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+
+.btn-hero-course:hover::before {
+    left: 120%;
+}
+
+.btn-hero-course:hover {
+    background: linear-gradient(135deg, #8B4550, #C4A67D);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(196, 166, 125, 0.5);
+    color: white;
+}
+
 /* Hero Visual Content */
 .hero-visual-content {
     position: relative;
